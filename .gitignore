@@ -1,0 +1,42 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache & build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Environment variables & secrets (CRITICAL: NEVER COMMIT)
+.env
+.env.local
+.env.*
+*.env
+!.env.example
+*.pem
+*.key
+
+# Local database files & Vector caches
+*.db
+*.sqlite
+*.sqlite3
+data/collection_agent.db
+data/qdrant_db/
+chroma_db/
+chroma_data/
+*.index
+
+# TTS audio cache (generated runtime speech)
+data/tts_cache/
+*.mp3
+*.wav
+
+# IDE & OS metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

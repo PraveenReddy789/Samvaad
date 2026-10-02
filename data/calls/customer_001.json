@@ -1,0 +1,13 @@
+{
+  "call_id": "CALL001",
+  "customer_id": "CUST001",
+  "loan_id": "LN1001",
+  "timestamp": "2026-09-24T10:15:00+05:30",
+  "direction": "outbound",
+  "transcript": "Agent: Your EMI of 12500 is overdue. Customer: I lost my job recently and cannot pay the full amount this week. Agent: I understand. We can check whether you qualify for hardship assistance. Customer: Please call me next week.",
+  "intent": "financial_hardship",
+  "outcome": "CALLBACK_REQUESTED",
+  "sentiment": "negative",
+  "preferred_language": "en-IN",
+  "summary": "Customer reports job loss and requests a callback next week regarding hardship assistance."
+}

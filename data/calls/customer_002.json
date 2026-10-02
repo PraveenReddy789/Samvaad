@@ -1,0 +1,13 @@
+{
+  "call_id": "CALL002",
+  "customer_id": "CUST002",
+  "loan_id": "LN1002",
+  "timestamp": "2026-09-24T11:00:00+05:30",
+  "direction": "outbound",
+  "transcript": "Agent: Your home loan EMI is due today. Customer: I will make the payment today. Agent: Thank you. Customer: Can you tell me where I can pay?",
+  "intent": "payment_information",
+  "outcome": "WILL_PAY",
+  "sentiment": "neutral",
+  "preferred_language": "en-IN",
+  "summary": "Customer confirms intention to pay today and asks for an approved payment channel."
+}

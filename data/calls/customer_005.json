@@ -1,0 +1,13 @@
+{
+  "call_id": "CALL005",
+  "customer_id": "CUST005",
+  "loan_id": "LN1005",
+  "timestamp": "2026-09-24T16:20:00+05:30",
+  "direction": "outbound",
+  "transcript": "Agent: Your vehicle loan EMI is overdue. Customer: I do not want to pay. Agent: May I know if there is a specific issue? Customer: No, I just cannot pay right now.",
+  "intent": "refusal_to_pay",
+  "outcome": "REFUSAL_TO_PAY",
+  "sentiment": "negative",
+  "preferred_language": "en-IN",
+  "summary": "Customer refuses payment without providing a specific dispute or hardship request."
+}

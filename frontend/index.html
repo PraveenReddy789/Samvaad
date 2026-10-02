@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samvaad | Realtime AI Voice Playground</title>
+  <meta name="description" content="Enterprise Realtime Voice AI Playground with Autonomous Debt Resolution, Policy Compliance Guardrails, and Authoritative Banking Tools.">
+  <link rel="stylesheet" href="/styles/index.css?v=2.5">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <div class="brand-symbol">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-name">Samvaad</span>
+            <span class="brand-sub">Smart Voice, Instant Resolution</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Profile Card -->
+      <div class="user-profile-badge">
+        <div class="user-avatar-box">S</div>
+        <div class="user-info">
+          <span class="user-name">Samvaad Voice Desk</span>
+          <span class="user-role">Voice Recovery Agent</span>
+        </div>
+        <span class="online-indicator" title="Connected"></span>
+      </div>
+
+      <!-- Streamlined Sidebar Navigation -->
+      <nav class="sidebar-nav">
+        <div class="nav-group-title">WORKSPACE</div>
+        <a href="#playground" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" x2="12" y1="19" y2="22"/>
+          </svg>
+          <span>Voice Playground</span>
+          <span class="nav-pill pill-live">LIVE</span>
+        </a>
+        <a href="javascript:void(0)" class="nav-item" id="navFlowBtn" onclick="if(window.openRulesTab) window.openRulesTab('sopTab'); return false;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+          </svg>
+          <span>Decision Flow</span>
+        </a>
+
+        <div class="nav-group-title" style="margin-top: 18px;">RULES & COMPLIANCE</div>
+        <a href="javascript:void(0)" class="nav-item" id="navSopBtn" onclick="if(window.openRulesTab) window.openRulesTab('sopTab'); return false;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+          <span>Recovery SOPs</span>
+        </a>
+        <a href="javascript:void(0)" class="nav-item" id="navPromptBtn" onclick="if(window.openRulesTab) window.openRulesTab('promptTab'); return false;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>Prompt & Agent Rules</span>
+        </a>
+        <a href="javascript:void(0)" class="nav-item" id="navAuditBtn" onclick="if(window.openRulesTab) window.openRulesTab('rbiTab'); return false;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>RBI Regulations</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <button class="signout-btn" onclick="alert('Session active. Samvaad Voice Desk is live.')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Container -->
+    <div class="main-viewport">
+      <!-- Top Action Bar (Compact) -->
+      <header class="top-action-bar">
+        <div class="page-title-block">
+          <h2>Realtime Voice Call Playground</h2>
+          <p>Speak directly with Samvaad AI Recovery Agent</p>
+        </div>
+
+        <div class="top-controls">
+          <!-- Voice Selector -->
+          <div class="playground-control-pill">
+            <span class="control-label">Voice:</span>
+            <select id="voiceSelector" class="header-select">
+              <option value="auto">Auto (Gender Inverted)</option>
+              <option value="en-IN-NeerjaNeural">Female (Neerja • English)</option>
+              <option value="en-IN-PrabhatNeural">Male (Prabhat • English)</option>
+              <option value="te-IN-ShrutiNeural">Female (Shruti • Telugu)</option>
+              <option value="te-IN-MohanNeural">Male (Mohan • Telugu)</option>
+              <option value="hi-IN-SwaraNeural">Female (Swara • Hindi)</option>
+              <option value="hi-IN-MadhurNeural">Male (Madhur • Hindi)</option>
+              <option value="ta-IN-PallaviNeural">Female (Pallavi • Tamil)</option>
+              <option value="ta-IN-ValluvarNeural">Male (Valluvar • Tamil)</option>
+              <option value="ml-IN-SobhanaNeural">Female (Sobhana • Malayalam)</option>
+              <option value="ml-IN-MidhunNeural">Male (Midhun • Malayalam)</option>
+            </select>
+          </div>
+
+          <!-- Language Selector -->
+          <div class="playground-control-pill">
+            <span class="control-label">Lang:</span>
+            <select id="languageSelector" class="header-select">
+              <option value="auto">Auto (Detect)</option>
+              <option value="en-IN">English (India)</option>
+              <option value="te-IN">Telugu (తెలుగు)</option>
+              <option value="hi-IN">Hindi (हिन्दी)</option>
+              <option value="ta-IN">Tamil (தமிழ்)</option>
+              <option value="ml-IN">Malayalam (മലയാളം)</option>
+            </select>
+          </div>
+
+
+          <!-- Customer Selection Dropdown -->
+          <div class="customer-picker-box">
+            <span class="picker-label">Account:</span>
+            <select id="customerSelector" class="customer-select">
+              <option value="CUST001">CUST001 — Arjun Kumar (Personal Loan)</option>
+              <option value="CUST002">CUST002 — Sneha Reddy (Home Loan)</option>
+              <option value="CUST003">CUST003 — Rahul Sharma (Vehicle Loan)</option>
+              <option value="CUST004">CUST004 — Priya Nair (Personal Loan)</option>
+              <option value="CUST005">CUST005 — Vikram Rao (Vehicle Loan)</option>
+            </select>
+          </div>
+
+          <!-- Playback Speed -->
+          <div class="playground-control-pill">
+            <span class="control-label">Speed:</span>
+            <select id="playbackSpeed" class="header-select">
+              <option value="1.0">1.0x</option>
+              <option value="1.2" selected>1.2x</option>
+              <option value="1.4">1.4x</option>
+            </select>
+          </div>
+
+          <!-- Toggle Telemetry Panel -->
+          <button class="refresh-btn" id="toggleTelemetryBtn" title="Toggle Telemetry Panel">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Telemetry</span>
+          </button>
+
+          <!-- Reset -->
+          <button class="refresh-btn" onclick="location.reload()" title="Refresh Session">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+            <span>Reset</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Voice Call Playground (Full-Screen Call Experience) -->
+      <main class="voice-call-playground">
+        <!-- Left: Call Center Stage -->
+        <section class="call-stage">
+          <!-- Account Info Strip -->
+          <div class="call-account-strip">
+            <div class="account-chip">
+              <span class="account-chip-label">ACCOUNT</span>
+              <span class="account-chip-value" id="customerName">Arjun Kumar</span>
+            </div>
+            <div class="account-chip">
+              <span class="account-chip-label">EMI DUE</span>
+              <span class="account-chip-value" id="customerEmi">₹12,500.00</span>
+            </div>
+            <div class="account-chip">
+              <span class="account-chip-label">DUE DATE</span>
+              <span class="account-chip-value" id="customerDueDate">2026-09-20</span>
+            </div>
+            <div class="account-chip">
+              <span class="account-chip-label">STATUS</span>
+              <span class="status-badge overdue" id="customerStatusBadge">OVERDUE</span>
+            </div>
+            <div class="account-chip">
+              <span class="account-chip-label">LOAN</span>
+              <span class="account-chip-value" id="customerLoanInfo">LN1001 • Personal Loan</span>
+            </div>
+          </div>
+
+          <!-- Central Animated Call Orb -->
+          <div class="call-orb-container">
+            <!-- Animated Pulse Rings (shown when active) -->
+            <div class="orb-ring orb-ring-1"></div>
+            <div class="orb-ring orb-ring-2"></div>
+            <div class="orb-ring orb-ring-3"></div>
+
+            <!-- Main Orb -->
+            <div class="call-orb" id="callOrb">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              <span class="orb-brand">SAMVAAD</span>
+            </div>
+          </div>
+
+          <!-- Call Status Display -->
+          <div class="call-status-block">
+            <div class="call-status-main" id="callStatusText">Ready to Call</div>
+            <div class="call-timer-badge" id="callTimerBadge" style="display:none;">
+              <span class="timer-dot"></span>
+              <span id="callTimerText">00:00</span>
+            </div>
+            <div class="call-status-sub" id="callSubStatus">Click "Call" to begin real-time hands-free conversation</div>
+            <div class="call-latency-tag" id="turnLatencyDisplay">—</div>
+          </div>
+
+          <!-- Voice Persona Tag -->
+          <div class="voice-persona-tag" id="voiceTagBadge">Voice: Female (Neerja)</div>
+
+          <!-- Interactive Speaking Language Switcher -->
+          <div class="call-lang-toggle-wrap">
+            <span class="call-lang-label">Speak in:</span>
+            <div class="call-lang-pill-group">
+              <button type="button" class="lang-pill active" id="pillLangEn" data-lang="en-IN">🇬🇧 English</button>
+              <button type="button" class="lang-pill" id="pillLangTe" data-lang="te-IN">🇮🇳 Telugu (తెలుగు)</button>
+              <button type="button" class="lang-pill" id="pillLangHi" data-lang="hi-IN">🇮🇳 Hindi (हिन्दी)</button>
+              <button type="button" class="lang-pill" id="pillLangTa" data-lang="ta-IN">🇮🇳 Tamil (தமிழ்)</button>
+              <button type="button" class="lang-pill" id="pillLangMl" data-lang="ml-IN">🇮🇳 Malayalam (മലയാളം)</button>
+            </div>
+
+          </div>
+
+          <!-- Live Transcript (minimal, shows last exchange) -->
+          <div class="live-transcript" id="liveTranscript">
+            <div class="transcript-line transcript-agent" id="lastAgentLine">
+              <span class="transcript-role">AI Agent</span>
+              <span class="transcript-text" id="lastAgentText">Waiting for call to begin...</span>
+            </div>
+          </div>
+
+          <!-- Call Control Buttons (Bottom) -->
+          <div class="call-controls-bar">
+            <!-- Start Call Button (Shown before call starts) -->
+            <button class="call-ctrl-btn ctrl-start" id="startCallBtn" title="Start real-time voice call">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Start Call</span>
+            </button>
+
+            <!-- Replay Last (Shown during call) -->
+            <button class="call-ctrl-btn ctrl-secondary" id="toggleAudioBtn" title="Replay last AI response" style="display:none;">
+              <span id="audioBtnIcon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </span>
+              <span id="audioBtnText">Replay</span>
+            </button>
+
+            <!-- Mic / Mute Button (Shown during call) -->
+            <button class="call-ctrl-btn ctrl-mic" id="micBtn" title="Mute/Unmute Mic" style="display:none;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" x2="12" y1="19" y2="22"/>
+              </svg>
+              <span id="micBtnLabel">Mic</span>
+            </button>
+
+            <!-- Send / Confirm (Tick) — quick override if needed -->
+            <button class="call-ctrl-btn ctrl-confirm" id="tickBtn" title="Send spoken message immediately" style="display:none;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Send</span>
+            </button>
+
+            <!-- End Call / Hang Up (Shown during call) -->
+            <button class="call-ctrl-btn ctrl-hangup" id="hangupBtn" title="End call session" style="display:none;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+              <span>End Call</span>
+            </button>
+          </div>
+
+          <!-- Hidden elements for compatibility -->
+          <input type="hidden" id="chatInput" value="">
+          <button id="sendBtn" style="display:none;"></button>
+          <div id="handsFreeToggle" style="display:none;"></div>
+          <div id="messagesScroll" style="display:none;"></div>
+          <div id="waveform" style="display:none;">
+            <div class="wave-bar"></div>
+          </div>
+        </section>
+
+        <!-- Right: Telemetry Panel (Collapsible) -->
+        <aside class="telemetry-section card-box" id="telemetryPanel">
+          <!-- Tabs Navigation -->
+          <div class="telemetry-tabs">
+            <button class="tab-button active" data-tab="telemetryTab">Telemetry & Tools</button>
+            <button class="tab-button" data-tab="citationsTab">Citations & SOP</button>
+            <button class="tab-button" data-tab="historyTab">Call History</button>
+            <button class="tab-button" data-tab="bankingTab">Core DB Facts</button>
+          </div>
+
+          <!-- Tab 1: Live Telemetry & Tools -->
+          <div class="tab-content-area active" id="telemetryTab">
+            <div class="info-card">
+              <div class="info-card-header">
+                <span>DETECTED RECOVERY INTENT</span>
+                <span class="match-tag" id="intentConfidence">100% Match</span>
+              </div>
+              <div class="intent-pill" id="detectedIntent">CHECK_BALANCE</div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-header">TRI-MODAL RECOVERY DISPOSITION</div>
+              <div class="outcome-pill WILL_PAY" id="outcomeBadge">INFORMATION_PROVIDED</div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-header">AUTHORITATIVE DATABASE TOOLS</div>
+              <div id="toolExecutionList" class="tool-list">
+                <div class="placeholder-text">No database tools executed in this turn.</div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-header">REGULATORY COMPLIANCE GUARDRAIL</div>
+              <div class="compliance-status-row">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span class="compliance-text">Fair Debt Recovery Compliant (RBI Guardrails Active)</span>
+              </div>
+              <div id="complianceWarnings" class="compliance-warnings-box"></div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Retrieved Citations & SOPs -->
+          <div class="tab-content-area" id="citationsTab">
+            <div class="info-card">
+              <div class="info-card-header">ACTIVE RECOVERY SOP</div>
+              <div class="sop-name" id="activeSopName">General Inquiries SOP</div>
+            </div>
+
+            <div class="section-label">GROUNDED CITATIONS (QDRANT + BM25 + RERANKER):</div>
+            <div id="citationsList" class="citations-container">
+              <div class="placeholder-text">No policy citations required for this direct tool action.</div>
+            </div>
+          </div>
+
+          <!-- Tab 3: Customer Call History (Official Call Records & Full Transcripts) -->
+          <div class="tab-content-area" id="historyTab">
+            <div class="history-banner">
+              <span>📋 Official Audio Call Records • Click any call below to view the full conversation transcript</span>
+            </div>
+            <div id="callHistoryList" class="history-container">
+              <!-- Logs injected here -->
+            </div>
+          </div>
+
+          <!-- Tab 4: Core Banking Database Facts -->
+          <div class="tab-content-area" id="bankingTab">
+            <div class="info-card">
+              <div class="info-card-header">AUTHORITATIVE LOAN ACCOUNT (SQLITE DB)</div>
+              <pre id="rawCustomerJson" class="json-code-block"></pre>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-header">CORE BANKING PAYMENTS</div>
+              <pre id="rawPaymentsJson" class="json-code-block"></pre>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <!-- Call Transcript & Audit Details Modal -->
+  <div id="callTranscriptModal" class="modal-backdrop">
+    <div class="transcript-dialog-card">
+      <div class="transcript-header">
+        <div class="transcript-avatar">📞</div>
+        <div class="transcript-header-meta">
+          <div class="transcript-header-name" id="transcriptCustomerName">Arjun Kumar (LN1001)</div>
+          <div class="transcript-header-status" id="transcriptCallMeta">CALL-001 • Date & Time: Sep 30, 2026, 11:20 AM</div>
+        </div>
+        <button class="modal-close-btn" id="closeTranscriptModal">&times;</button>
+      </div>
+
+      <div class="transcript-meta-bar" id="transcriptMetaBar">
+        <!-- Badges for Outcome, Intent, Sentiment, Turns -->
+      </div>
+
+      <div class="transcript-body" id="transcriptChatBody">
+        <!-- Official call transcript turns injected here -->
+      </div>
+
+      <div class="transcript-footer">
+        <span class="transcript-footer-compliance">🔒 Official Banking Call Record • Monitored for RBI Compliance</span>
+        <button class="btn btn-secondary btn-sm" id="closeTranscriptFooterBtn">Close Transcript</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rules & Regulations Interactive Modal -->
+  <div id="rulesModal" class="modal-backdrop">
+    <div class="rules-dialog-card">
+      <div class="rules-header">
+        <div class="rules-header-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span id="rulesModalTitle">Samvaad — Regulatory & Agent Rules</span>
+        </div>
+        <button class="modal-close-btn" id="closeRulesModal" onclick="if(window.closeRulesModalFunc) window.closeRulesModalFunc(); return false;">&times;</button>
+      </div>
+
+      <!-- Rules Navigation Tabs -->
+      <div class="rules-nav-tabs">
+        <button class="rules-tab-btn active" data-ruletab="promptTab" onclick="if(window.openRulesTab) window.openRulesTab('promptTab'); return false;">Prompt & Persona Rules</button>
+        <button class="rules-tab-btn" data-ruletab="rbiTab" onclick="if(window.openRulesTab) window.openRulesTab('rbiTab'); return false;">RBI Fair Recovery Regulations</button>
+        <button class="rules-tab-btn" data-ruletab="sopTab" onclick="if(window.openRulesTab) window.openRulesTab('sopTab'); return false;">Recovery SOPs</button>
+      </div>
+
+      <div class="rules-body">
+        <!-- Tab 1: Prompt Rules -->
+        <div class="rules-pane active" id="promptTab">
+          <div class="rule-block">
+            <h4>1. Golden Architecture Rule (Zero Financial Hallucination)</h4>
+            <p>Financial facts (outstanding balance, EMI amount, due date, payment status) must be retrieved <strong>strictly from authoritative core database tools</strong>. RAG is only used for policy interpretation. The agent must never guess or invent numbers.</p>
+          </div>
+          <div class="rule-block">
+            <h4>2. Payment Confirmation Protocol (Already Paid SOP)</h4>
+            <p>Verification tools execute before response generation. If the UTR / transaction is verified with status 'SUCCESS', the agent must <strong>immediately confirm</strong> full clearance without asking the customer to wait or hold.</p>
+          </div>
+          <div class="rule-block">
+            <h4>3. Telephony Voice Brevity</h4>
+            <p>All spoken responses are limited to 1 to 2 concise sentences (under 35 words) to ensure real-time latency and natural phone conversation pacing.</p>
+          </div>
+        </div>
+
+        <!-- Tab 2: RBI Regulations -->
+        <div class="rules-pane" id="rbiTab">
+          <div class="rule-block">
+            <h4>1. Permissible Calling Hours</h4>
+            <p>Under Reserve Bank of India (RBI) Fair Recovery Code, customer communications are permitted strictly between <strong>08:00 AM and 07:00 PM</strong> local time.</p>
+          </div>
+          <div class="rule-block">
+            <h4>2. Anti-Harassment & Civil Conduct</h4>
+            <p>Strict prohibition against abusive language, intimidation, threatening police or legal force without court decree, or public humiliation.</p>
+          </div>
+          <div class="rule-block">
+            <h4>3. Privacy & Authorized Communication</h4>
+            <p>Debt recovery details cannot be disclosed to unauthorized third parties, co-workers, or relatives without written consent.</p>
+          </div>
+        </div>
+
+        <!-- Tab 3: Recovery SOPs -->
+        <div class="rules-pane" id="sopTab">
+          <div class="rule-block">
+            <h4>• Already Paid SOP</h4>
+            <p>Extract transaction reference or UTR. Verify via <code>verify_payment_transaction</code>. If verified, update core ledger and confirm zero overdue balance.</p>
+          </div>
+          <div class="rule-block">
+            <h4>• Financial Hardship SOP</h4>
+            <p>Acknowledge job loss or medical emergency empathetically. Register hardship ticket via <code>register_hardship_request</code>. Never guarantee unauthorized debt write-offs.</p>
+          </div>
+          <div class="rule-block">
+            <h4>• Payment Dispute SOP</h4>
+            <p>Open formal dispute ticket via <code>create_escalation_ticket</code>. Pause automated escalation and assign to accounts reconciliation team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Audio Element for Agent Voice Playback -->
+  <audio id="agentAudioPlayer" preload="auto"></audio>
+
+  <!-- Application Logic -->
+  <script src="/src/app.js?v=4.0"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,13 @@
+{
+  "call_id": "CALL003",
+  "customer_id": "CUST003",
+  "loan_id": "LN1003",
+  "timestamp": "2026-09-24T12:30:00+05:30",
+  "direction": "outbound",
+  "transcript": "Agent: Your vehicle loan EMI is showing as due. Customer: I already paid it on the 15th. The transaction reference is TXN-70001. Agent: I will verify the payment status.",
+  "intent": "already_paid",
+  "outcome": "PAYMENT_PENDING_VERIFICATION",
+  "sentiment": "neutral",
+  "preferred_language": "en-IN",
+  "summary": "Customer says the EMI was already paid and provides a transaction reference."
+}

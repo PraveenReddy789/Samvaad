@@ -1,0 +1,13 @@
+{
+  "call_id": "CALL004",
+  "customer_id": "CUST004",
+  "loan_id": "LN1004",
+  "timestamp": "2026-09-24T14:10:00+05:30",
+  "direction": "outbound",
+  "transcript": "Agent: Your EMI is overdue. Customer: The amount shown is incorrect because I already made a partial payment. Agent: I will verify the payment and outstanding balance before discussing the remaining amount.",
+  "intent": "dispute",
+  "outcome": "ESCALATE_PAYMENT_DISPUTE",
+  "sentiment": "negative",
+  "preferred_language": "en-IN",
+  "summary": "Customer disputes the outstanding amount because a partial payment was made."
+}
